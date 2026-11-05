@@ -1,0 +1,11 @@
+# Kredensial lokal database
+/config/database.local.php
+
+# File sementara dan log
+*.log
+.DS_Store
+Thumbs.db
+
+# File hasil upload pengunjung
+/uploads/*
+!/uploads/.htaccess

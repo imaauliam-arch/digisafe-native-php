@@ -1,0 +1,1 @@
+<section class="container section empty-state"><span class="eyebrow">404 ERROR</span><h1>Halaman tidak ditemukan</h1><p>Halaman yang kamu cari mungkin sudah dipindahkan atau alamatnya salah.</p><a class="btn btn-primary" href="index.php">Kembali ke Beranda</a></section>
