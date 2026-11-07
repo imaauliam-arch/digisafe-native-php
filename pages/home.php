@@ -22,9 +22,16 @@
 
 <section class="container section" id="artikel">
     <div class="section-heading">
-        <div><span class="eyebrow">BACA & PELAJARI</span><h2>Artikel terbaru</h2></div>
-        <span class="muted"><?= count($ds_posts) ?> artikel tersedia</span>
+        <div><span class="eyebrow">BACA & PELAJARI</span><h2>Jelajahi artikel</h2></div>
+        <span class="muted"><?= count($ds_posts) ?> artikel ditemukan</span>
     </div>
+    <form class="article-tools" method="get" action="index.php#artikel">
+        <input type="hidden" name="page" value="home">
+        <input type="search" name="q" placeholder="Cari artikel, misalnya phishing..." value="<?= e($search ?? '') ?>" aria-label="Cari artikel">
+        <select name="category" aria-label="Filter kategori"><option value="0">Semua kategori</option><?php foreach($ds_categories as $cat): ?><option value="<?= (int)$cat['id'] ?>" <?= ((int)($categoryId ?? 0)===(int)$cat['id'])?'selected':'' ?>><?= e($cat['name']) ?></option><?php endforeach; ?></select>
+        <button class="btn btn-primary" type="submit">Cari Artikel</button>
+        <?php if(!empty($search)||!empty($categoryId)): ?><a class="clear-filter" href="index.php#artikel">Reset</a><?php endif; ?>
+    </form>
     <div class="post-grid">
         <?php foreach ($ds_posts as $item): ?>
         <article class="post-card">
@@ -39,5 +46,6 @@
             </div>
         </article>
         <?php endforeach; ?>
+        <?php if (!$ds_posts): ?><div class="empty-state"><h3>Artikel tidak ditemukan</h3><p>Coba kata kunci atau kategori lain.</p></div><?php endif; ?>
     </div>
 </section>

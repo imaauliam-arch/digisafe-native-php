@@ -18,7 +18,7 @@ $currentPage = $_GET['page'] ?? 'home';
         <nav aria-label="Navigasi utama">
             <a class="<?= $currentPage === 'home' ? 'active' : '' ?>" href="index.php">Beranda</a>
             <a class="<?= $currentPage === 'about' ? 'active' : '' ?>" href="index.php?page=about">Tentang Saya</a>
-            <a class="<?= $currentPage === 'create-post' ? 'active' : '' ?>" href="index.php?page=create-post">Kirim Artikel</a>
+            
             <a class="<?= $currentPage === 'contact' ? 'active' : '' ?>" href="index.php?page=contact">Kontak</a>
         </nav>
     </div>

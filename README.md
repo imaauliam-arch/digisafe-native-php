@@ -1,5 +1,10 @@
 # DIGISAFE — Native PHP & MySQL
 
+Nama : Ima Aulia Maghviroh
+NIM : 09010626013
+Mata kuliah : Literasi Digital untuk Sistem Informasi (SIF125105)
+Dosen pengampu :  Ahmad Yusuf, M.Kom
+
 Website literasi digital bertema **Keamanan Akun Digital**, dibuat menggunakan PHP Native, MySQL, HTML, dan CSS tanpa framework.
 
 ## Struktur folder
@@ -63,8 +68,3 @@ Database `db_digisafe` memiliki tabel:
 - Folder uploads memblokir eksekusi file PHP melalui `.htaccess`.
 
 Untuk deployment publik, tambahkan login/akun pengguna, moderasi admin, rate limiting anti-spam, pembatasan ukuran konten, kebijakan privasi, dan konfigurasi server yang aman. Proteksi `.htaccess` berlaku pada Apache yang mengizinkan konfigurasi direktori.
-
-
-## Jika database versi pertama sudah terlanjur diimpor
-
-Jangan impor ulang file SQL utama ke database lama. Buka phpMyAdmin → pilih `db_digisafe` → Import → pilih `database/upgrade_v1_to_v2.sql`. File upgrade ini menambahkan kolom penulis dan tabel komentar untuk database versi pertama. Untuk instalasi baru, cukup impor `db_digisafe.sql`.

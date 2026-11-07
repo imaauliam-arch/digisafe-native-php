@@ -13,9 +13,10 @@
     <div class="tag-row"><strong>Tag:</strong>
         <?php foreach ($postTags as $tag): ?><span class="tag"><?= e($tag['name']) ?></span><?php endforeach; ?>
     </div>
-    <section class="ds_comments-section" id="komentar">
+    <section class="comments-section" id="komentar">
         <h2>Komentar (<?= count($ds_comments) ?>)</h2>
         <?php if (!empty($commentError)): ?><div class="alert error"><?= e($commentError) ?></div><?php endif; ?>
+        <p class="comment-note">Komentar akan ditampilkan setelah diperiksa oleh admin DIGISAFE.</p>
         <form class="contact-form comment-form" method="POST" action="index.php?page=post&slug=<?= e($post['slug']) ?>#komentar">
             <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
             <label for="commenter">Nama *</label><input id="commenter" name="commenter" required maxlength="100">
