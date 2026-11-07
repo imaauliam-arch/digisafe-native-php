@@ -184,3 +184,45 @@ form.article-tools .clear-filter:hover {
         justify-self: start !important;
     }
 }
+
+
+/* =================================
+   ADMIN LOGIN NAVIGATION
+================================= */
+
+.nav-menu .nav-admin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 9px 15px;
+    margin-left: 5px;
+
+    color: #2563eb;
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.nav-menu .nav-admin svg {
+    flex-shrink: 0;
+}
+
+.nav-menu .nav-admin:hover {
+    color: #ffffff;
+    border-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
+}
+
+.nav-menu .nav-admin:active {
+    transform: translateY(0);
+}
