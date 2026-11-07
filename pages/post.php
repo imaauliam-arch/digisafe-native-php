@@ -16,13 +16,19 @@
     <section class="comments-section" id="komentar">
         <h2>Komentar (<?= count($ds_comments) ?>)</h2>
         <?php if (!empty($commentError)): ?><div class="alert error"><?= e($commentError) ?></div><?php endif; ?>
-        <p class="comment-note">Komentar akan ditampilkan setelah diperiksa oleh admin DIGISAFE.</p>
+        <p class="comment-note">
+            Komentar akan langsung ditampilkan. Pastikan komentar tetap sopan,
+            relevan, dan tidak mengandung spam. Komentar yang melanggar etika
+            dapat dihapus oleh admin.
+        </p>
         <form class="contact-form comment-form" method="POST" action="index.php?page=post&slug=<?= e($post['slug']) ?>#komentar">
             <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
             <label for="commenter">Nama *</label><input id="commenter" name="commenter" required maxlength="100">
             <label for="comment_email">Email (tidak ditampilkan) *</label><input id="comment_email" name="comment_email" type="email" required maxlength="150">
             <label for="comment_body">Komentar *</label><textarea id="comment_body" name="comment_body" rows="4" required maxlength="2000"></textarea>
-            <button class="btn btn-primary" type="submit" name="submit_comment">Kirim Komentar</button>
+            <button class="btn btn-primary" type="submit" name="submit_comment">
+                Kirim Komentar
+            </button>
         </form>
         <div class="comment-list">
             <?php if (!$ds_comments): ?><p class="muted">Belum ada komentar. Jadilah yang pertama berkomentar.</p><?php endif; ?>

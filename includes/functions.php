@@ -33,3 +33,40 @@ function require_admin(): void {
         exit;
     }
 }
+
+function check_comment_warning(string $comment): ?string
+{
+    $text = mb_strtolower(trim($comment));
+
+    $blockedWords = [
+        'anjing',
+        'bangsat',
+        'kontol',
+        'memek',
+        'ngentot',
+        'brengsek',
+        'tolol',
+        'goblok',
+        'bajingan'
+    ];
+
+    foreach ($blockedWords as $word) {
+        $pattern = '/(?<![\p{L}\p{N}])' . preg_quote($word, '/') . '(?![\p{L}\p{N}])/u';
+
+        if (preg_match($pattern, $text)) {
+            return 'Mengandung kata kasar atau umpatan.';
+        }
+    }
+
+    preg_match_all('/https?:\/\/|www\./i', $text, $links);
+
+    if (count($links[0]) >= 3) {
+        return 'Terdeteksi terlalu banyak tautan atau kemungkinan spam.';
+    }
+
+    if (preg_match('/(.)\1{9,}/u', $text)) {
+        return 'Terdeteksi pengulangan karakter yang berlebihan.';
+    }
+
+    return null;
+}
